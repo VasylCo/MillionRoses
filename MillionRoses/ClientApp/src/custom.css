@@ -1,0 +1,242 @@
+/* Provide sufficient contrast against white background */
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-top: 70px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.main-container {
+  margin-top: -14px;
+  font-size: 18px;
+}
+
+.introduce-container {
+  width: 100%;
+  /*background-color: antiquewhite;*/
+  min-height: 102vh;
+  display: flex;
+}
+
+.introduce-container div {
+  width: 50%;
+}
+
+.common-container .container {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .common-container .container {
+    flex-direction: column;
+  }
+  .counter-container {
+    height: auto !important;
+    font-size: 18px !important;
+  }
+  .introduce-container {
+    flex-direction: column-reverse;
+  }
+
+  .introduce-container div {
+    width: 100%;
+    height: 750px;
+  }
+}
+
+@media (max-width: 630px) {
+  div.about-cma-section {
+    width: 100%;
+    padding: 10px;
+  }
+  div.birthday-section > div,
+  div.about-cma-section > div {
+    width: 90%;
+    height: auto;
+    padding: 50px 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .introduce-container {
+    font-size: medium;
+  }
+  .navbar-collapse svg {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .introduce-container {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 460px) {
+  div.birthday-section > div,
+  div.about-cma-section > div,
+  .introduce-container div {
+    font-size: smaller;
+  }
+  .navbar-nav {
+    background-color: #ffffff;
+  }
+}
+
+.introduce-container .img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/Victoria_3.png');
+}
+
+.counter-container {
+  height: 270px !important;
+  font-size: 24px;
+  background-color: #d0e2b1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.counter-container div p {
+  margin-bottom: 0;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* .counter-container div:last-child > p {
+  text-align: start;
+} */
+
+.bouquet-btn {
+  text-align: center;
+  height: 320px;
+  width: 220px;
+  margin: 20px;
+}
+
+.bouquet-btn p {
+  height: 85px;
+  font-size: 16px;
+}
+
+.main-button {
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 5px;
+  padding: 10px 0;
+  width: 105px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.buy-rouse-img {
+  width: 200px;
+  height: auto;
+}
+
+.buy-btn {
+  color: #ffffff !important;
+  background-color: #000000;
+  border-radius: 5px;
+  padding: 15px 30px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  text-decoration: none;
+}
+
+.birthday-section {
+  background-color: #30ca69;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.birthday-section > div {
+  border: 2px solid #ffffff;
+  width: 600px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+  color: #ffffff;
+}
+
+.about-cma-section {
+  background-color: #1890af;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 100px;
+  color: #ffffff;
+}
+
+.about-cma-section > div {
+  width: 600px;
+  color: #ffffff;
+}
+
+.birthday-section > div > p {
+  width: 465px;
+  height: 220px;
+}
+
+.share-block-btn {
+  background: #7795f8;
+  box-shadow: none;
+  color: #ffffff;
+  --color-text: #ffffff;
+  font-weight: 400;
+  border-color: #7795f8;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.resources-page p {
+  margin-bottom: 0.5em;
+  font-size: 14px;
+  font-weight: bold;
+}

@@ -1,0 +1,114 @@
+﻿a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  font-size: 16px;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+.navbar-nav {
+  align-items: center;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar-background {
+  /*background-color: rgba(256, 256, 256, 0.5);*/
+  background-color: #000000;
+  position: fixed;
+}
+
+@media (max-width: 575px) {
+  .collapse.navbar-collapse ul {
+    background-color: #ffffff;
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 576px) {
+  nav.navbar-background div div ul li a,
+  nav.navbar-background svg,
+  nav.navbar-background .navbar-brand {
+    color: #ffffff !important;
+  }
+
+  nav.navbar-background a.gofundme-social svg > g {
+    fill: #ffffff;
+  }
+}
+
+a.gofundme-social svg > g {
+  fill: gray;
+}
+
+a.text-dark:hover,
+a.text-dark:focus,
+.nav-item svg:hover,
+.nav-item svg:active {
+  color: #1890af !important;
+}
+
+a.gofundme-social svg > g:hover,
+a.gofundme-social svg > g:active {
+  fill: #1890af !important;
+}
+
+.social {
+  margin: 0 5px;
+}
+
+.nav-item svg {
+  height: 25px;
+  color: gray;
+}
+
+nav.navbar-background .navbar-toggler {
+  border-color: #ffffff;
+}
+
+.navbar-expand-sm .navbar-collapse {
+  justify-content: space-between;
+}
+div.flex-sm-row-reverse {
+  flex-direction: row !important;
+}
+
+@media (max-width: 575px) {
+  .navbar-expand-sm > .container {
+    justify-content: flex-end;
+  }
+  div.navbar-collapse {
+    display: flex;
+    flex-direction: column !important;
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding-bottom: 20px;
+    margin-top: 10px;
+  }
+  a.navbar-brand {
+    margin-right: 0;
+  }
+  .mr-2.navbar-toggler {
+    margin: 0;
+  }
+}
