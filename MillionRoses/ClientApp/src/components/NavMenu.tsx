@@ -11,12 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faYoutube,
-  faFacebook,
-  faTwitter,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 interface NavMenuState {
   collapsed: boolean;
@@ -68,7 +63,8 @@ export class NavMenu extends Component<any, NavMenuState> {
             <Collapse
               className='d-sm-inline-flex flex-sm-row-reverse'
               isOpen={!this.state.collapsed}
-              navbar>
+              navbar
+              onClick={this.toggleNavbar}>
               <NavbarBrand tag={Link} to='/'>
                 Головна
               </NavbarBrand>
@@ -87,7 +83,8 @@ export class NavMenu extends Component<any, NavMenuState> {
                   <a
                     href='https://www.facebook.com/SaveVictoriaTogether'
                     className='facebook social'
-                    target='_blank'>
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     <FontAwesomeIcon icon={faFacebook} size='2x' color='gray' />
                   </a>
                 </NavItem>
@@ -95,7 +92,8 @@ export class NavMenu extends Component<any, NavMenuState> {
                   <a
                     href='https://www.instagram.com/help_viktoria_sma/'
                     className='instagram social'
-                    target='_blank'>
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     <FontAwesomeIcon
                       icon={faInstagram}
                       size='2x'
@@ -107,7 +105,8 @@ export class NavMenu extends Component<any, NavMenuState> {
                   <a
                     href='https://www.gofundme.com/f/please-help-1-year-old-victoria-fight-sma-illness?utm_campaign=p_cp+share-sheet&utm_medium=copy_link_all&utm_source=customer'
                     className='gofundme-social'
-                    target='_blank'>
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     <svg
                       version='1.0'
                       xmlns='http://www.w3.org/2000/svg'
@@ -182,7 +181,9 @@ m795 -339 c262 -43 478 -114 652 -216 l68 -40 -1145 0 c-1024 1 -1143 2 -1125
                   </a>
                 </NavItem>
               </ul>
-              <button>Обрати букет</button>
+              <a className='chose-bouquet-btn-nav' href='#chose'>
+                ОБРАТИ БУКЕТ
+              </a>
             </Collapse>
           </Container>
         </Navbar>

@@ -7,25 +7,75 @@ export default class Resources extends Component {
       <Container className='resources-page'>
         <h4>РЕКВІЗИТИ ДЛЯ ДОПОМОГИ:</h4>
         <br />
-        <p>🌸Приватбанк 🌸</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+          Приватбанк{' '}
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+        </p>
         <p>4731 2196 1475 0994 Полюга Назар(тато)</p>
         <p>5168 7427 1698 7346 Полюга Назар (тато)</p>
         <br />
-        <p>🌼USD IBAN 🌼UA973052990000026201899325378</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+          USD IBAN{' '}
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+          UA973052990000026201899325378
+        </p>
         <p>SWIFT CODE/BIC: PBANUA2X</p>
         <p>POLIUHA NAZAR</p>
         <br />
-        <p>🌸EUR IBAN: 🌸UA553052990000026207899325639</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+          EUR IBAN:{' '}
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+          UA553052990000026207899325639
+        </p>
         <p>SWIFT CODE/BIC : PBANUA2X</p>
         <p>POLIUHA NAZAR</p>
         <br />
-        <p>🌼Monobank :🌼</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+          Monobank :
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+        </p>
         <p>5375411404612058</p>
         <br />
-        <p>🌸Приватбанк 🌸</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+          Приватбанк{' '}
+          <span role='img' aria-labelledby='flower'>
+            🌸
+          </span>
+        </p>
         <p>5168742710339957 Коцовська Мар'яна (мама)</p>
         <br />
-        <p>🌼Ощадбанк🌼</p>
+        <p>
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+          Ощадбанк
+          <span role='img' aria-labelledby='flower'>
+            🌼
+          </span>
+        </p>
         <p>5167 8032 2632 0880 Коцовська Мар'яна (мама)</p>
         <br />
         <a href='https://www.facebook.com/groups/342935707016180/?ref=share'>
@@ -33,7 +83,10 @@ export default class Resources extends Component {
             <div>
               <div> Ссилка на групу у Facebook </div>
               <div>
-                🌺Переходьте за посиланням, слідкуйте за новинами, діліться і
+                <span role='img' aria-labelledby='flower'>
+                  🌸
+                </span>
+                Переходьте за посиланням, слідкуйте за новинами, діліться і
                 просто підтримуйте Вікусю
               </div>
             </div>
