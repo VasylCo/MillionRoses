@@ -40,7 +40,7 @@ export default class Documents extends Component {
 
   render() {
     return (
-      <Container>
+      <Container className='documents-page'>
         <h2>Документи</h2>
         <br></br>
         <ImageGallery items={this.images} />

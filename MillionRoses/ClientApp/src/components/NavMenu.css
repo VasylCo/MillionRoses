@@ -5,6 +5,10 @@
   font-size: 16px;
 }
 
+a {
+  cursor: pointer;
+}
+
 html {
   font-size: 14px;
 }
@@ -35,6 +39,30 @@ html {
   position: fixed;
 }
 
+.collapse.navbar-collapse a,
+.collapse.navbar-collapse .nav-item svg,
+.collapse.navbar-collapse a.gofundme-social svg > g {
+  fill: #000000;
+  color: #000000;
+  font-weight: 600;
+}
+
+.collapse.navbar-collapse a:hover,
+.collapse.navbar-collapse .nav-item svg:hover,
+.collapse.navbar-collapse a.gofundme-social svg > g:hover {
+  fill: #1890af !important;
+  color: #1890af !important;
+}
+
+.chose-bouquet-btn-nav {
+  border: 2px solid #f97068;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #21486d !important;
+  font-weight: normal;
+}
+
 @media (max-width: 575px) {
   .collapse.navbar-collapse ul {
     background-color: #ffffff;
@@ -43,31 +71,16 @@ html {
 }
 
 @media (min-width: 576px) {
-  nav.navbar-background div div ul li a,
-  nav.navbar-background svg,
-  nav.navbar-background .navbar-brand {
+  nav.navbar-background .collapse.navbar-collapse a,
+  nav.navbar-background .collapse.navbar-collapse .nav-item svg,
+  nav.navbar-background .collapse.navbar-collapse a.gofundme-social svg > g {
     color: #ffffff !important;
+    fill: #ffffff !important;
   }
 
   nav.navbar-background a.gofundme-social svg > g {
     fill: #ffffff;
   }
-}
-
-a.gofundme-social svg > g {
-  fill: gray;
-}
-
-a.text-dark:hover,
-a.text-dark:focus,
-.nav-item svg:hover,
-.nav-item svg:active {
-  color: #1890af !important;
-}
-
-a.gofundme-social svg > g:hover,
-a.gofundme-social svg > g:active {
-  fill: #1890af !important;
 }
 
 .social {
@@ -103,7 +116,7 @@ div.flex-sm-row-reverse {
     justify-content: center;
     background-color: #ffffff;
     padding-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 3px;
   }
   a.navbar-brand {
     margin-right: 0;
