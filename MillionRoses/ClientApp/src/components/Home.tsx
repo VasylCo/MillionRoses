@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'reactstrap';
 import Fade from 'react-reveal/Fade';
 import CountUp from 'react-countup';
 import { history } from '../index';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 interface HomeState {
   roses: number;
 }
 
-export class Home extends Component<{}, HomeState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      roses: 0,
-    };
-  }
+export const Home = () => {
+  //static displayName = Home.name;
 
-  static displayName = Home.name;
-
-  componentDidMount() {
+  const uk = ['uk', 'ru'];
+  const { t, i18n } = useTranslation();
+  const [roses, setRoses] = useState(0);
+  const [isUkrainian, setCurrentLanguage] = useState(true);
+  const getLanguage = () =>
+    i18next.language ? i18next.language : navigator.language;
+  useEffect(() => {
+    //window.scrollTo(0, 0);
     try {
       fetch('/numbers.json', {
         headers: {
@@ -29,13 +31,15 @@ export class Home extends Component<{}, HomeState> {
         .then((response) => {
           return response.json() as Promise<HomeState>;
         })
-        .then((result) => this.setState({ roses: result.roses }));
+        .then((result) => setRoses(result.roses));
     } catch (ex) {
       console.log(ex);
     }
-  }
+    const lang = getLanguage();
+    setCurrentLanguage(uk.includes(lang));
+  });
 
-  facebook = () => {
+  const facebook = () => {
     const url = window.location.href;
     const img = `${window.location.href}Instruction.png`;
     var totalurl = url + '?img=' + img;
@@ -46,229 +50,209 @@ export class Home extends Component<{}, HomeState> {
     );
   };
 
-  viber = () => {
+  const viber = () => {
     document.getElementById('download-link')?.click();
   };
 
-  pay = (url: string) => {
-    window.open(url, '_blank');
-    history.push('/share');
+  const pay = (url: string, toAccoumt: boolean = false) => {
+    if (toAccoumt) {
+      history.push('/resources');
+    } else {
+      window.open(url, '_blank');
+      history.push('/share');
+    }
   };
 
-  render() {
-    return (
-      <>
-        <div className='common-container introduce-container'>
-          <div className='main-text'>
-            <p>Вікторія Полюга</p>
-            <p>Діагноз – СМА 1-2 типу</p>
-          </div>
-          <img className='main-img' src='Victoria_main.png' alt='' />
+  return (
+    <>
+      <div className='common-container introduce-container'>
+        <div className='main-text'>
+          <p>{t('main.name')}</p>
+          <p>{t('main.diagnosis')}</p>
         </div>
-        <div className='common-container about-container'>
+        <img className='main-img' src='Victoria_main.png' alt='' />
+      </div>
+      <div className='common-container about-container'>
+        <Container>
+          <img
+            className='first-float-img'
+            src='/2_1.png'
+            alt='background-form'
+          />
+          <img
+            className='second-float-img'
+            src='/3_1.png'
+            alt='background-form'
+          />
+          <div
+            className='about-first-block'
+            dangerouslySetInnerHTML={{
+              __html: t('about.firstBlock'),
+            }}></div>
+          <div
+            className='about-second-block'
+            dangerouslySetInnerHTML={{
+              __html: t('about.secondBlock'),
+            }}></div>
+        </Container>
+      </div>
+      <Fade>
+        <div className='bouquete-container'>
           <Container>
-            <img
-              className='first-float-img'
-              src='/2_1.png'
-              alt='background-form'
-            />
-            <img
-              className='second-float-img'
-              src='/3_1.png'
-              alt='background-form'
-            />
-            <div className='about-first-block'>
-              <strong>Це Вікторія, їй 1 рік. </strong> У дівчинки — рідкісне
-              генетичне захворювання <strong>СМА </strong> (спінальна м'язова
-              атрофія). Це означає, що її м'язи з кожним днем{' '}
-              <strong>слабнуть</strong>, а з часом вона повністю втратить
-              здатність самостійно дихати. <strong>Ліки від хвороби є</strong> —
-              достатньо 1 уколу препарату <strong>Zolgensma (Золгенсма)</strong>{' '}
-              фармацевтичної компанії Novartis.
+            <div className='bouquete-wrapper'>
+              <div>
+                <h5
+                  dangerouslySetInnerHTML={{
+                    __html: t('buy.priceText'),
+                  }}></h5>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t('buy.introduce'),
+                  }}></p>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: t('buy.promote'),
+                  }}></p>
+                <a className='chose-bouquet-btn-main' href='#chose'>
+                  {t('button.chooseBouquet')}
+                </a>
+              </div>
+              <div></div>
             </div>
-            <div className='about-second-block'>
-              Найдорожча у світі ін'єкція, що лікує генетичний дефект, коштує{' '}
-              <strong>2.3 млн доларів (65 млн грн)</strong>. Проте{' '}
-              <strong>часу на збір обмаль</strong> – щодня хвороба прогресує і
-              Вікторія втрачає свої моторні навички. Ліки треба ввести до
-              досягнення дівчинкою <strong>2 років</strong>.
+          </Container>
+          <img
+            className='bouquete-wrapper-img'
+            src='roses_boquet.png'
+            alt='roses-bouquet'
+          />
+          <img
+            className='third-float-img'
+            src='/4_1.png'
+            alt='background-form'
+          />
+        </div>
+      </Fade>
+      <Fade>
+        <div className='stat-container'>
+          <Container>
+            <div className='stat-wrapper'>
+              <div className='stat-from'>
+                <p>{t('roses.collected')}</p>
+                <div className='stat-circle'>
+                  <CountUp start={0} end={roses} duration={4} separator=' ' />
+                </div>
+              </div>
+              <div className='stat-to'>
+                <p>{t('roses.need')}</p>
+                <div className='stat-circle'>
+                  <CountUp
+                    start={1000000}
+                    end={1000000 - roses}
+                    duration={4}
+                    separator=' '
+                  />
+                </div>
+              </div>
             </div>
           </Container>
         </div>
-        <Fade>
-          <div className='bouquete-container'>
-            <Container>
-              <div className='bouquete-wrapper'>
-                <div>
-                  <h5>
-                    65 гривень – ціна однієї <strong>розкішної троянди!</strong>
-                  </h5>
-                  <p>
-                    І батьки Вікторії, і волонтери шукають
-                    <strong>
-                      {' '}
-                      мільйон охочих переказати на лікування маленької бодай 65
-                      грн.{' '}
-                    </strong>
-                    Разом ми зберемо для дівчинки{' '}
-                    <strong>букет з мільйона символічних троянд</strong>.
-                    <br />
-                    <br />
-                    <span style={{ marginTop: 10 }}>
-                      <strong>Здійсніть пожертву</strong> на нашій платформі,{' '}
-                      <strong>подаруйте Вікторії букет</strong> від себе та
-                      допоможіть дівчинці отримати омріяний{' '}
-                      <strong>укол життя. </strong>
-                    </span>
-                  </p>
-                  <a className='chose-bouquet-btn-main' href='#chose'>
-                    ОБРАТИ БУКЕТ
-                  </a>
-                </div>
-                <div></div>
-              </div>
-            </Container>
-            <img
-              className='bouquete-wrapper-img'
-              src='roses_boquet.png'
-              alt='roses-bouquet'
-            />
-            <img
-              className='third-float-img'
-              src='/4_1.png'
-              alt='background-form'
-            />
-          </div>
-        </Fade>
-        <Fade>
-          <div className='stat-container'>
-            <Container>
-              <div className='stat-wrapper'>
-                <div className='stat-from'>
-                  <p>Всього подаровано троянд</p>
-                  <div className='stat-circle'>
-                    <CountUp
-                      start={0}
-                      end={this.state.roses}
-                      duration={4}
-                      separator=' '
-                    />
-                  </div>
-                </div>
-                <div className='stat-to'>
-                  <p>Залишилось зібрати троянд</p>
-                  <div className='stat-circle'>
-                    <CountUp
-                      start={1000000}
-                      end={1000000 - this.state.roses}
-                      duration={4}
-                      separator=' '
-                    />
-                  </div>
-                </div>
-              </div>
-            </Container>
-          </div>
-        </Fade>
-        <Fade>
-          <div
-            className='common-container text-center '
-            style={{ marginTop: 50 }}
-            id='chose'>
-            <h4 style={{ marginBottom: 50 }}>
-              <strong>Подаруй Вікторії троянди!</strong>
-            </h4>
-          </div>
-          <div className='common-container chose-btns'>
+      </Fade>
+      <Fade>
+        <div
+          className='common-container text-center '
+          style={{ marginTop: 50 }}
+          id='chose'>
+          <h4
+            style={{ marginBottom: 50 }}
+            dangerouslySetInnerHTML={{
+              __html: t('roses.doIt'),
+            }}></h4>
+        </div>
+        <div className='common-container chose-btns'>
+          {isUkrainian ? (
             <Container>
               <img
                 src='/roses-3.png'
                 alt='3-roses-bouquet'
                 onClick={() =>
-                  this.pay('https://send.monobank.ua/AAuSTTVW8b?amount=195')
+                  pay('https://send.monobank.ua/AAuSTTVW8b?amount=195')
                 }
               />
               <img
                 src='/roses-5.png'
                 alt='5-roses-bouquet'
                 onClick={() =>
-                  this.pay('https://send.monobank.ua/AAuSTTVW8b?amount=325')
+                  pay('https://send.monobank.ua/AAuSTTVW8b?amount=325')
                 }
               />
               <img
                 src='/own-bouquet.png'
                 alt='custom-bouquet'
-                onClick={() => this.pay('https://send.monobank.ua/AAuSTTVW8b')}
+                onClick={() => pay('https://send.monobank.ua/AAuSTTVW8b')}
               />
             </Container>
-          </div>
-        </Fade>
-        <Fade>
-          <div className='lets-do-container'>
-            <Container>
-              <a
-                id='download-link'
-                href='/Download-viber.png'
-                download
-                style={{ display: 'none' }}></a>
-              <div className='lets-do-block'>
-                <div>
-                  Якщо у тебе <strong>День народження чи іменини</strong>, або
-                  ти просто хочеш розповісти друзям про ініціативу і заохотити
-                  подарувати Вікторії троянди – <strong>розмісти допис</strong>{' '}
-                  в себе на сторінці, <strong>запиши відеозвернення</strong> в
-                  Stories, <strong>надішли запрошення</strong> через Viber.
-                  <br />
-                  <br />
-                  <div className='test'>
-                    <button
-                      className='share-download-btn'
-                      onClick={this.facebook}>
-                      ПОШИРИТИ ДОПИС
-                    </button>
-                    <button className='share-download-btn' onClick={this.viber}>
-                      ЗАВАНТАЖИТИ ДЛЯ VIBER
-                    </button>
-                  </div>
-                </div>
-              </div>
+          ) : (
+            <Container className='justify-content-center'>
+              <img
+                src='/own_boquet_en.png'
+                alt='own-roses-bouquet'
+                onClick={() => pay('', true)}
+              />
             </Container>
-          </div>
-        </Fade>
-        <Fade>
-          <div className='sma-container'>
-            <img
-              className='fourth-float-img'
-              src='/5_1.png'
-              alt='background-form'
-            />
-            <Container>
-              <div className='sma-container-img'>
-                <img src='/Victoria_picture_2_1.png' alt='' />
+          )}
+        </div>
+      </Fade>
+      <Fade>
+        <div className='lets-do-container'>
+          <Container>
+            <a
+              id='download-link'
+              href='/Download-viber.png'
+              download
+              style={{ display: 'none' }}></a>
+            <div className='lets-do-block'>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: t('promotion.text'),
+                }}></div>
+              <br />
+              <br />
+              <div className='test'>
+                <button className='share-download-btn' onClick={facebook}>
+                  {t('button.share')}
+                </button>
+                <button className='share-download-btn' onClick={viber}>
+                  {t('button.downloadForVider')}
+                </button>
               </div>
-              <div className='sma-container-text'>
-                <h4>Що таке СМА</h4>
-                <p>
-                  Це <strong>смертельне генетичне захворювання</strong>, що
-                  порушує функції{' '}
-                  <strong>нервових клітин спинного мозку </strong>
-                  та призводить до <strong>м’язової атрофії</strong>. Першими
-                  слабнуть м’язи діафрагми, і дитина{' '}
-                  <strong>перестає вільно дихати.</strong> З часом відмовляють і
-                  інші м’язи, що врешті призводить до{' '}
-                  <strong>зупинки серця.</strong> Без належного лікування дитина
-                  може не дожити до <strong>двох років.</strong> Це захворювання
-                  зустрічається в{' '}
-                  <strong>однієї дитини на 6-10 тис. людей.</strong>
-                </p>
-                <a className='chose-bouquet-btn-main' href='#chose'>
-                  ОБРАТИ БУКЕТ
-                </a>
-              </div>
-            </Container>
-          </div>
-        </Fade>
-      </>
-    );
-  }
-}
+            </div>
+          </Container>
+        </div>
+      </Fade>
+      <Fade>
+        <div className='sma-container'>
+          <img
+            className='fourth-float-img'
+            src='/5_1.png'
+            alt='background-form'
+          />
+          <Container>
+            <div className='sma-container-img'>
+              <img src='/Victoria_picture_2_1.png' alt='' />
+            </div>
+            <div className='sma-container-text'>
+              <h4>{t('aboutSma.title')}</h4>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: t('aboutSma.text'),
+                }}></p>
+              <a className='chose-bouquet-btn-main' href='#chose'>
+                {t('buy.choseBouquete')}
+              </a>
+            </div>
+          </Container>
+        </div>
+      </Fade>
+    </>
+  );
+};

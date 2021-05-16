@@ -1,6 +1,7 @@
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { Translation } from 'react-i18next';
 import { NavMenu } from './NavMenu';
 
 export class Layout extends Component {
@@ -13,8 +14,14 @@ export class Layout extends Component {
         <div className='main-container'>{this.props.children}</div>
         <div className='footer-container'>
           <div className='footer-block'>
-            <a href='/documents'>Документи</a>
-            <a href='/resources'>Допомогти</a>
+            <a href='/documents'>
+              <Translation>
+                {(t, { i18n }) => t('navmenu.documents')}
+              </Translation>
+            </a>
+            <a href='/resources'>
+              <Translation>{(t, { i18n }) => t('navmenu.help')}</Translation>
+            </a>
             <a
               href='https://www.facebook.com/SaveVictoriaTogether'
               className='facebook social'

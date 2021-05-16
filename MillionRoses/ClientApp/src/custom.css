@@ -9,6 +9,10 @@ a {
   color: #0366d6;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 code {
   color: #e01a76;
 }
@@ -114,6 +118,12 @@ body {
   height: 320px;
   width: 220px;
   margin: 20px;
+}
+
+.chose-bouquet-btn-main:hover,
+.share-download-btn:hover {
+  color: #1890af !important;
+  font-weight: 600;
 }
 
 .bouquet-btn p {
@@ -354,7 +364,8 @@ body {
   font-size: 12px;
   color: #21486d !important;
   font-weight: normal;
-  max-width: 134px;
+  /* max-width: 134px; */
+  width: fit-content;
   position: relative;
   z-index: 5;
 }
@@ -394,7 +405,7 @@ body {
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   width: 252px;
 }
 
@@ -451,18 +462,20 @@ body {
 }
 
 .lets-do-block {
-  width: 100%;
+  width: 571px;
   display: flex;
   justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
 }
 
-.lets-do-block > div {
+.lets-do-block > div:first-child {
   width: 571px;
   position: relative;
   margin-top: 87px;
 }
 
-.lets-do-block > div::after {
+.lets-do-block::after {
   content: '';
   display: block;
   position: absolute;
@@ -540,7 +553,7 @@ body {
 
 @media (max-width: 1024px) {
   .bouquete-wrapper-img {
-    right: -80px;
+    right: 20px;
   }
   .bouquete-wrapper div,
   .lets-do-container,
@@ -655,6 +668,7 @@ body {
   }
   .sma-container {
     height: auto;
+    margin-top: 50px;
   }
   .sma-container > .container {
     flex-direction: column;
@@ -673,6 +687,7 @@ body {
   }
   .lets-do-block > div {
     margin-top: 0;
+    width: 100% !important;
   }
   .lets-do-container {
     height: 220px;
@@ -722,4 +737,17 @@ body {
 
 .chose-btns img {
   cursor: pointer;
+}
+
+.loader-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 999;
 }

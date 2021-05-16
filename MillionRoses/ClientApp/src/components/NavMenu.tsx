@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import './NavMenu.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Translation } from 'react-i18next';
 
 interface NavMenuState {
   collapsed: boolean;
@@ -38,7 +39,7 @@ export class NavMenu extends Component<any, NavMenuState> {
   }
 
   handleScroll() {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 10) {
       document.getElementById('navbar')?.classList.add('navbar-background');
     } else {
       document.getElementById('navbar')?.classList.remove('navbar-background');
@@ -66,17 +67,23 @@ export class NavMenu extends Component<any, NavMenuState> {
               navbar
               onClick={this.toggleNavbar}>
               <NavbarBrand tag={Link} to='/'>
-                Головна
+                <Translation>
+                  {(t, { i18n }) => t('navmenu.hompage')}
+                </Translation>
               </NavbarBrand>
               <ul className='navbar-nav flex-grow'>
                 <NavItem>
                   <NavLink tag={Link} className='text-dark' to='/documents'>
-                    Документи
+                    <Translation>
+                      {(t, { i18n }) => t('navmenu.documents')}
+                    </Translation>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className='text-dark' to='/resources'>
-                    Допомогти
+                    <Translation>
+                      {(t, { i18n }) => t('navmenu.help')}
+                    </Translation>
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -182,7 +189,9 @@ m795 -339 c262 -43 478 -114 652 -216 l68 -40 -1145 0 c-1024 1 -1143 2 -1125
                 </NavItem>
               </ul>
               <a className='chose-bouquet-btn-nav' href='#chose'>
-                ОБРАТИ БУКЕТ
+                <Translation>
+                  {(t, { i18n }) => t('button.chooseBouquet')}
+                </Translation>
               </a>
             </Collapse>
           </Container>
