@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import ImageGallery from 'react-image-gallery';
 import { Container } from 'reactstrap';
 
-export default class Documents extends Component {
-  images = [
+export default function Documents() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const { t } = useTranslation();
+  const images = [
     {
       original: '/documents/Doc_1.jpg',
       thumbnail: '/documents/thumbnails/Doc_1_tn.jpg',
@@ -38,13 +44,11 @@ export default class Documents extends Component {
     },
   ];
 
-  render() {
-    return (
-      <Container className='documents-page'>
-        <h2>Документи</h2>
-        <br></br>
-        <ImageGallery items={this.images} />
-      </Container>
-    );
-  }
+  return (
+    <Container className='documents-page'>
+      <h2>{t('documents.title')}</h2>
+      <br></br>
+      <ImageGallery items={images} />
+    </Container>
+  );
 }
