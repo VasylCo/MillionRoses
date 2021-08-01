@@ -1,6 +1,6 @@
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Translation } from 'react-i18next';
 import { NavMenu } from './NavMenu';
 

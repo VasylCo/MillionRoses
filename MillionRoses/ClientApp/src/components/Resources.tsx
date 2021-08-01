@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
 
 export default function Resources() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -101,14 +101,6 @@ export default function Resources() {
         <div className='share-block-btn'>
           <div>
             <div> Чат у вайбер </div>
-          </div>
-        </div>
-      </a>
-      <br />
-      <a href='https://invite.viber.com/?g2=AQA%2BEjgd3Lp8EU1Fw9fIqhkXLSi63Ynw8Jj3R3xkMff0CqFf0ugYUY%2Bv%2FXdoaWqb'>
-        <div className='share-block-btn'>
-          <div>
-            <p> Чат у вайбер </p>
           </div>
         </div>
       </a>

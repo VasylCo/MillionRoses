@@ -39,19 +39,39 @@ html {
   position: fixed;
 }
 
+.navbar-background div ul li span {
+  color: #ffffff;
+}
+
 .collapse.navbar-collapse a,
+.collapse.navbar-collapse span,
 .collapse.navbar-collapse .nav-item svg,
-.collapse.navbar-collapse a.gofundme-social svg > g {
+.collapse.navbar-collapse a.gofundme-social svg > g,
+.collapse.navbar-collapse span.language-separator:hover {
   fill: #000000;
   color: #000000;
   font-weight: 600;
 }
 
 .collapse.navbar-collapse a:hover,
+.collapse.navbar-collapse span:hover,
 .collapse.navbar-collapse .nav-item svg:hover,
-.collapse.navbar-collapse a.gofundme-social svg > g:hover {
+.collapse.navbar-collapse a.gofundme-social svg > g:hover,
+nav.navbar-background .collapse.navbar-collapse span.current-language,
+span.current-language,
+nav.navbar-background .collapse.navbar-collapse a:hover,
+nav.navbar-background .collapse.navbar-collapse span:hover,
+nav.navbar-background .collapse.navbar-collapse .nav-item svg:hover,
+nav.navbar-background
+  .collapse.navbar-collapse
+  a.gofundme-social
+  svg
+  > g:hover {
   fill: #1890af !important;
   color: #1890af !important;
+}
+.collapse.navbar-collapse span {
+  cursor: pointer;
 }
 
 .chose-bouquet-btn-nav {
@@ -63,6 +83,10 @@ html {
   font-weight: normal;
 }
 
+span.language-separator {
+  cursor: default;
+}
+
 @media (max-width: 575px) {
   .collapse.navbar-collapse ul {
     background-color: #ffffff;
@@ -72,8 +96,12 @@ html {
 
 @media (min-width: 576px) {
   nav.navbar-background .collapse.navbar-collapse a,
+  nav.navbar-background .collapse.navbar-collapse span,
   nav.navbar-background .collapse.navbar-collapse .nav-item svg,
-  nav.navbar-background .collapse.navbar-collapse a.gofundme-social svg > g {
+  nav.navbar-background .collapse.navbar-collapse a.gofundme-social svg > g,
+  nav.navbar-background
+    .collapse.navbar-collapse
+    span.language-separator:hover {
     color: #ffffff !important;
     fill: #ffffff !important;
   }
@@ -123,5 +151,8 @@ div.flex-sm-row-reverse {
   }
   .mr-2.navbar-toggler {
     margin: 0;
+  }
+  span.language-separator {
+    display: none;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from 'react-image-gallery';
 import { Container } from 'reactstrap';
@@ -8,7 +8,7 @@ export default function Documents() {
     window.scrollTo(0, 0);
   }, []);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const images = [
     {
       original: '/documents/Doc_1.jpg',

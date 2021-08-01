@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Container } from 'reactstrap';
 import { history } from '../index';
 

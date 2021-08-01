@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container } from 'reactstrap';
 import Fade from 'react-reveal/Fade';
 import CountUp from 'react-countup';
 import { history } from '../index';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { ukrainianLang } from '../shared/ukrainianLang';
 
 interface HomeState {
   roses: number;
 }
 
 export const Home = () => {
-  //static displayName = Home.name;
-
-  const uk = ['uk', 'ru'];
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [roses, setRoses] = useState(0);
-  const [isUkrainian, setCurrentLanguage] = useState(true);
-  const getLanguage = () =>
-    i18next.language ? i18next.language : navigator.language;
   useEffect(() => {
-    //window.scrollTo(0, 0);
+    console.log(i18next.language);
     try {
       fetch('/numbers.json', {
         headers: {
@@ -35,9 +30,7 @@ export const Home = () => {
     } catch (ex) {
       console.log(ex);
     }
-    const lang = getLanguage();
-    setCurrentLanguage(uk.includes(lang));
-  });
+  }, []);
 
   const facebook = () => {
     const url = window.location.href;
@@ -54,9 +47,9 @@ export const Home = () => {
     document.getElementById('download-link')?.click();
   };
 
-  const pay = (url: string, toAccoumt: boolean = false) => {
-    if (toAccoumt) {
-      history.push('/resources');
+  const pay = (url: string, toGofund: boolean = false) => {
+    if (toGofund) {
+      window.open('https://gofund.me/be58ad6d');
     } else {
       window.open(url, '_blank');
       history.push('/share');
@@ -169,7 +162,7 @@ export const Home = () => {
             }}></h4>
         </div>
         <div className='common-container chose-btns'>
-          {isUkrainian ? (
+          {ukrainianLang.includes(i18next.language) ? (
             <Container>
               <img
                 src='/roses-3.png'
