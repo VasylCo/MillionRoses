@@ -63,7 +63,7 @@ export const NavMenu = () => {
           <NavbarToggler onClick={toggleNavbar} className='mr-2' />
           <Collapse
             className='d-sm-inline-flex flex-sm-row-reverse'
-            isOpen={!collapsed}
+            isOpen={collapsed}
             navbar
             onClick={toggleNavbar}>
             <NavbarBrand tag={Link} to='/'>

@@ -15,7 +15,6 @@ export const Home = () => {
   const { t } = useTranslation();
   const [roses, setRoses] = useState(0);
   useEffect(() => {
-    console.log(i18next.language);
     try {
       fetch('/numbers.json', {
         headers: {
